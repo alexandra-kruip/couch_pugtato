@@ -3,4 +3,3 @@
 node_modules
 dist
 !dist/index.html
-package-lock.json
