@@ -5,7 +5,7 @@ import { yt_key } from '../../api_keys';
 import { tmdb_key } from '../../api_keys';
 
 
-const BASE_URL = 'https://api.themoviedb.org/3/movie/550?api_key=' + tmdb_key;
+const BASE_URL = 'https://api.themoviedb.org/3/discover/movie?api_key='+ tmdb_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
 
 export function fetchMedia (){
     const request = axios.get(`${BASE_URL}`);

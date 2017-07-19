@@ -13,7 +13,7 @@ class MediaPanel extends Component {
             return <div>Loading...</div>
         }
         console.log('MediaPanel this.props.media', this.props.media);
-        const { title, overview, poster_path } = this.props.media.data;
+        const { title, overview, poster_path } = this.props.media.data.results[0];
         return(
             <Panel header="What to Watch" className='text-center'>
                 <h2>{title}</h2>
