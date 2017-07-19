@@ -4,20 +4,28 @@ import { fetchMedia } from '../actions/index';
 import { connect } from 'react-redux';
 
 class MediaPanel extends Component {
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount() {
         this.props.fetchMedia();
     }
-
+    renderMedia(){
+        if(!this.props.media){
+            console.log('hits if statement');
+            return <div>Loading...</div>
+        }
+        console.log('MediaPanel this.props.media', this.props.media);
+        const { title, overview, poster_path } = this.props.media.data;
+        return(
+            <Panel header="What to Watch" className='text-center'>
+                <h2>{title}</h2>
+                <img src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + poster_path}/>
+                <p>{overview}</p>
+            </Panel>
+        )
+    }
     render() {
         return (
             <div>
-                <Panel header="What to Watch" className='text-center'>
-                    <h2></h2>
-                </Panel>
+                {this.renderMedia()}
             </div>
         )
     }
