@@ -10,13 +10,13 @@ class MediaPanel extends Component {
 
     componentDidMount() {
         this.props.fetchMedia();
-        console.log('this.prop', this.props);
     }
 
     render() {
         return (
             <div>
                 <Panel header="What to Watch" className='text-center'>
+                    <h2></h2>
                 </Panel>
             </div>
         )
@@ -24,7 +24,7 @@ class MediaPanel extends Component {
 };
 
 function mapStateToProps(state){
-    console.log('map state media test', state.media);
+    console.log('map state media test', state.media.list);
     return {
         media: state.media.list
     }
