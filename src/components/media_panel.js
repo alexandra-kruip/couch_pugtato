@@ -24,7 +24,7 @@ class MediaPanel extends Component {
 };
 
 function mapStateToProps(state){
-    console.log('map state media test', state.media);
+    console.log('map state media test', state);
     return {
         media: state.media.list
     }
