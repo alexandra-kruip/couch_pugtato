@@ -1,3 +1,17 @@
 .app {
     text-align: center;
 }
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: black;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+}
