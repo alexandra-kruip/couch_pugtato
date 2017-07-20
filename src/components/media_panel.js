@@ -13,12 +13,17 @@ class MediaPanel extends Component {
             return <div>Loading...</div>
         }
         console.log('MediaPanel this.props.media', this.props.media);
-        const { title, overview, poster_path } = this.props.media.data.results[0];
+        const { title, overview, poster_path, vote_average, genre_ids } = this.props.media.data.results[4];
         return(
             <Panel header="What to Watch" className='text-center'>
                 <h2>{title}</h2>
                 <img src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + poster_path}/>
+                <h3><i className="glyphicon glyphicon-star"/>{vote_average}</h3>
+                <p>{genre_ids}</p>
                 <p>{overview}</p>
+
+                <btn className="btn btn-warning"><i className="glyphicon glyphicon-chevron-left"/>Previous</btn>
+                <btn className="btn btn-info">Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }
