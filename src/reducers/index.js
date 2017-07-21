@@ -7,7 +7,8 @@ import yelpReducer from './yelp_reducer';
 const rootReducer = combineReducers({
     media: mediaReducer,
     youtube: videos,
-    yelp: yelpReducer
+    yelp: yelpReducer,
+    youtubeBoolean: videos
 });
 
 export default rootReducer;
