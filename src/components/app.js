@@ -1,13 +1,19 @@
 import React from 'react';
 import './app.css';
-import logo from './imgs/logo.svg';
+import Navbar from './navbar';
+import Footer from './footer';
+import Grid from './grid';
+import VideoList from './videolist';
 
 const App = () => (
     <div>
+        <Navbar />
         <div className="app">
-            <img src={logo} className="rotate"/>
-            <h1>Welcome to React!</h1>
+            <h1>Welcome to Couch Pugtato!</h1>
         </div>
+        <Grid />
+        <VideoList />
+        <Footer />
     </div>
 );
 
