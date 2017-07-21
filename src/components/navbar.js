@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, Button } from 'react-bootstrap';
 class navbarTest extends Component {
     render() {
         return (
-            <Navbar collapseOnSelect>
+            <Navbar collapseOnSelect className="navbar-inverse">
                 <Navbar.Header>
                     <Navbar.Brand justified>
                         <a href="#">Couch Pugtato</a>

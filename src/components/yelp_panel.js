@@ -22,7 +22,7 @@ class Yelp extends Component {
     }
 
     handleNext(increase) {
-        if(increase === 19){
+        if(increase === this.props.yelp.data.businesses.length){
             increase = 0;
         }
         this.setState({restaurant: ++increase});
