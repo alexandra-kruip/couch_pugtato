@@ -3,7 +3,7 @@ import { Panel } from 'react-bootstrap';
 import { fetchMedia } from '../actions/index';
 import { connect } from 'react-redux';
 import { genre_decoder } from './helper_functions';
-import { youtubeSearch } from '../actions/index'
+import { youtubeSearch, youtubeToggleTrue, youtubeToggleFalse } from '../actions/index'
 
 class MediaPanel extends Component {
     componentDidMount() {
@@ -20,6 +20,7 @@ class MediaPanel extends Component {
             return;
         }
         this.setState({movie: --decrease});
+        this.props.youtubeToggleFalse();
         this.renderMedia();
     }
 
@@ -28,6 +29,7 @@ class MediaPanel extends Component {
             increase = 0;
         }
         this.setState({movie: ++increase});
+        this.props.youtubeToggleFalse();
         this.renderMedia();
     }
 
@@ -41,12 +43,14 @@ class MediaPanel extends Component {
 
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
 
+        this.props.youtubeSearch({title});
+
         return(
             <Panel header="What to Watch" bsStyle="primary" className='text-center'>
                 <h2>{title}</h2>
                 <img src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + poster_path}/>
                 <h4>Rating: <i className="glyphicon glyphicon-star"/>{vote_average}</h4>
-                <btn className="btn btn-primary" onClick={() => this.props.youtubeSearch({title})}><i className="glyphicon glyphicon-play"/>  Play Trailers</btn>
+                <btn className="btn btn-primary" onClick={() => this.props.youtubeToggleTrue()}><i className="glyphicon glyphicon-play"/>  Show Trailers</btn>
                 <p>Genres: {`${genre_decoder(genre_ids)}`}</p>
                 <p>Release Date: {release_date}</p>
                 <p>{overview}</p>
@@ -72,7 +76,7 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {fetchMedia, youtubeSearch})(MediaPanel);
+export default connect(mapStateToProps, {fetchMedia, youtubeSearch, youtubeToggleTrue, youtubeToggleFalse })(MediaPanel);
 
 
 

@@ -38,3 +38,17 @@ export function youtubeSearch(term) {
     }
     
 };
+
+export function youtubeToggleTrue() {
+    return{
+        type: actions.YOUTUBE_TOGGLE_TRUE,
+        payload: true
+    };
+};
+
+export function youtubeToggleFalse() {
+    return{
+        type: actions.YOUTUBE_TOGGLE_FALSE,
+        payload: false
+    };
+};
