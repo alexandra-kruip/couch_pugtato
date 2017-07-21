@@ -4,7 +4,7 @@ import actions from './types';
 import { yt_key } from '../../api_keys';
 import { tmdb_key } from '../../api_keys';
 
-const YELP_URL = 'https://couch-pugtato.herokuapp.com/yelp/pizza/irvine';
+const YELP_URL = 'https://couch-pugtato.herokuapp.com/yelp/irvine';
 const BASE_URL = 'https://api.themoviedb.org/3/discover/movie?api_key='+ tmdb_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&page=1&page=1';
 
 export function fetchMedia (){
