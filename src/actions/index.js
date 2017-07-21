@@ -2,8 +2,10 @@ import axios from 'axios';
 import YTSearch from 'youtube-api-search';
 import actions from './types';
 import { yt_key } from '../../api_keys';
+import { tmdb_key } from '../../api_keys';
 
-const BASE_URL = 'https://api.themoviedb.org/3/movie/550?api_key=72c2461a868b47b346d72e43036bfb70';
+
+const BASE_URL = 'https://api.themoviedb.org/3/discover/movie?api_key='+ tmdb_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
 
 export function fetchMedia (){
     const request = axios.get(`${BASE_URL}`);
@@ -15,7 +17,7 @@ export function fetchMedia (){
 
 export function youtubeSearch(term) {
     return (dispatch) => {
-        var response = []
+        var response = [];
         YTSearch({
             key: yt_key,
             term
