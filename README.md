@@ -21,6 +21,6 @@
 - Alexandra Kruip -> [Portfolio](http://alexkdev.com)
 - Alex SJ Lee -> [Portfolio](http://alexsjlee.com)
 - Vincent Tang -> [Portfolio](https://vincentpoketang.com)
-- Ryan Apellanes -> Portfolio (https://ryanapples.com)
+- Ryan Apellanes -> [Portfolio](https://ryanapples.com)
 
 
