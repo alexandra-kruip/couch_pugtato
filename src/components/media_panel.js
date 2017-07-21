@@ -7,13 +7,41 @@ class MediaPanel extends Component {
     componentDidMount() {
         this.props.fetchMedia();
     }
+
+    constructor(props){
+        super(props);
+        this.state = {movie: 0};
+    }
+
+    handlePrevious(decrease) {
+        if(decrease <= 0){
+            return;
+        }
+        console.log("This is the value of ", decrease);
+        this.setState({movie: --decrease});
+        console.log("New value of decrease", decrease);
+        this.renderMedia();
+    }
+
+    handleNext(increase) {
+        if(increase === 19){
+            increase = 0;
+        }
+        this.setState({movie: ++increase});
+        this.renderMedia();
+    }
+
     renderMedia(){
         if(!this.props.media){
-            console.log('hits if statement');
             return <div>Loading...</div>
         }
-        console.log('MediaPanel this.props.media', this.props.media);
-        const { title, overview, poster_path, vote_average, genre_ids, release_date } = this.props.media.data.results[4];
+
+        const resultsArr = this.props.media.data.results;
+        console.log('this.props.media.data.results', resultsArr);
+
+
+        const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
+
         return(
             <Panel header="What to Watch" className='text-center'>
                 <h2>{title}</h2>
@@ -23,8 +51,8 @@ class MediaPanel extends Component {
                 <p>Release Date: {release_date}</p>
                 <p>{overview}</p>
 
-                <btn className="btn btn-warning"><i className="glyphicon glyphicon-chevron-left"/>Previous</btn>
-                <btn className="btn btn-info">Next<i className="glyphicon glyphicon-chevron-right"/></btn>
+                <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.movie)}><i className="glyphicon glyphicon-chevron-left"/>Previous</btn>
+                <btn className="btn btn-info" onClick={() => this.handleNext(this.state.movie)}>Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }
