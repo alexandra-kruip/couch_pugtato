@@ -2,7 +2,7 @@ import React from 'react';
 import './app.css';
 import Navbar from './navbar';
 import Footer from './footer';
-import MediaPanel from './media_panel';
+import Grid from './grid';
 import VideoList from './videolist';
 
 const App = () => (
@@ -11,7 +11,7 @@ const App = () => (
         <div className="app">
             <h1>Welcome to Couch Pugtato!</h1>
         </div>
-        <MediaPanel />
+        <Grid />
         <VideoList />
         <Footer />
     </div>

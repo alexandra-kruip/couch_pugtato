@@ -12,7 +12,7 @@ class navbarTest extends Component {
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                     <Nav pullRight> 
+                     <Nav pullRight>
                          <NavItem eventKey={1} href="#"> 
                              <Button bsStyle="info" block>Log In / Sign Up</Button>
                          </NavItem> 
