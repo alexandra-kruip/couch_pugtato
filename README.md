@@ -18,9 +18,9 @@
 - Slack
 
 ##### Developers
-- Alexandra Kruip -> [Portfolio](http://alexkdev.com)
-- Alex SJ Lee -> [Portfolio](http://alexsjlee.com)
-- Vincent Tang -> [Portfolio](https://vincentpoketang.com)
-- Ryan Apellanes -> [Portfolio](https://ryanapples.com)
+- Alexandra Kruip -> [Portfolio](http://alexkdev.com){:target="_blank"}
+- Alex SJ Lee -> [Portfolio](http://alexsjlee.com){:target="_blank"}
+- Vincent Tang -> [Portfolio](http://vincentpoketang.com){:target="_blank"}
+- Ryan Apellanes -> [Portfolio](http://ryanapples.com){:target="_blank"}
 
 
