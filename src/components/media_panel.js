@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 import { fetchMedia } from '../actions/index';
 import { connect } from 'react-redux';
+import { genre_decoder } from './helper_functions';
+import { youtubeSearch } from '../actions/index'
 
 class MediaPanel extends Component {
     componentDidMount() {
@@ -17,9 +19,7 @@ class MediaPanel extends Component {
         if(decrease <= 0){
             return;
         }
-        console.log("This is the value of ", decrease);
         this.setState({movie: --decrease});
-        console.log("New value of decrease", decrease);
         this.renderMedia();
     }
 
@@ -35,19 +35,18 @@ class MediaPanel extends Component {
         if(!this.props.media){
             return <div>Loading...</div>
         }
-
         const resultsArr = this.props.media.data.results;
         console.log('this.props.media.data.results', resultsArr);
 
 
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
-
+        this.props.youtubeSearch(title);
         return(
             <Panel header="What to Watch" className='text-center'>
                 <h2>{title}</h2>
                 <img src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + poster_path}/>
                 <h4>Rating: <i className="glyphicon glyphicon-star"/>{vote_average}</h4>
-                <p>{genre_ids}</p>
+                <p>Genres: {`${genre_decoder(genre_ids)}`}</p>
                 <p>Release Date: {release_date}</p>
                 <p>{overview}</p>
 
@@ -72,7 +71,7 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {fetchMedia})(MediaPanel);
+export default connect(mapStateToProps, {fetchMedia, youtubeSearch})(MediaPanel);
 
 
 
