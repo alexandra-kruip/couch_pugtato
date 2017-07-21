@@ -42,7 +42,7 @@ class MediaPanel extends Component {
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
 
         return(
-            <Panel header="What to Watch" bsStyle="primary" className='text-center'>
+            <Panel header="What to Watch" bsStyle="info" className='text-center'>
                 <h2>{title}</h2>
                 <img src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + poster_path}/>
                 <h4>Rating: <i className="glyphicon glyphicon-star"/>{vote_average}</h4>
