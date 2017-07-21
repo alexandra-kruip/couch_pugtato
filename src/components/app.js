@@ -3,7 +3,6 @@ import './app.css';
 import Navbar from './navbar';
 import Footer from './footer';
 import Grid from './grid';
-// import MediaPanel from './media_panel';
 import VideoList from './videolist';
 
 const App = () => (

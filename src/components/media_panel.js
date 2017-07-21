@@ -22,8 +22,8 @@ class MediaPanel extends Component {
                 <p>{genre_ids}</p>
                 <p>{overview}</p>
 
-                <btn className="btn btn-warning"><i className="glyphicon glyphicon-chevron-left"/>Previous</btn>
-                <btn className="btn btn-info">Next<i className="glyphicon glyphicon-chevron-right"/></btn>
+                <btn className="btn btn-warning" type="button"><i className="glyphicon glyphicon-chevron-left"/>Previous</btn>
+                <btn className="btn btn-info" type="button">Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }
