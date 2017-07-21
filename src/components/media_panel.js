@@ -40,18 +40,19 @@ class MediaPanel extends Component {
 
 
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
-        this.props.youtubeSearch(title);
+
         return(
-            <Panel header="What to Watch" className='text-center'>
+            <Panel header="What to Watch" bsStyle="primary" className='text-center'>
                 <h2>{title}</h2>
                 <img src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + poster_path}/>
                 <h4>Rating: <i className="glyphicon glyphicon-star"/>{vote_average}</h4>
+                <btn className="btn btn-primary" onClick={() => this.props.youtubeSearch({title})}><i className="glyphicon glyphicon-play"/>  Play Trailers</btn>
                 <p>Genres: {`${genre_decoder(genre_ids)}`}</p>
                 <p>Release Date: {release_date}</p>
                 <p>{overview}</p>
 
-                <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.movie)}><i className="glyphicon glyphicon-chevron-left"/>Previous</btn>
-                <btn className="btn btn-info" onClick={() => this.handleNext(this.state.movie)}>Next<i className="glyphicon glyphicon-chevron-right"/></btn>
+                <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.movie)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
+                <btn className="btn btn-info" onClick={() => this.handleNext(this.state.movie)}>  Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }

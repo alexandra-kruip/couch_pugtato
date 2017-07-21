@@ -8,6 +8,26 @@ class Yelp extends Component {
         this.props.yelpData();
 
     }
+    constructor(props){
+        super(props);
+        this.state = {restaurant: 0};
+    }
+
+    handlePrevious(decrease) {
+        if(decrease <= 0){
+            return;
+        }
+        this.setState({restaurant: --decrease});
+        this.renderYelpData();
+    }
+
+    handleNext(increase) {
+        if(increase === 19){
+            increase = 0;
+        }
+        this.setState({restaurant: ++increase});
+        this.renderYelpData();
+    }
 
     renderYelpData() {
         if(!this.props.yelp) {
@@ -15,8 +35,8 @@ class Yelp extends Component {
             return <div>Woomp Woomp No Food... </div>
         }
         console.log('yelp data', this.props.yelp.data);
-        const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[0];
-        const { address1, city, state, zip_code } = this.props.yelp.data.businesses[0].location;
+        const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[this.state.restaurant];
+        const { address1, city, state, zip_code } = this.props.yelp.data.businesses[this.state.restaurant].location;
         return(
             <Panel header="What To Eat" bsStyle="danger" className="text-center">
                 <a href={url} target="_blank"><h2>{name}</h2></a>
@@ -32,7 +52,10 @@ class Yelp extends Component {
                 <div className="y-data">
                     <span className="glyphicon glyphicon-heart" aria-hidden="true"></span>
                     {rating}
-                </div>                
+                </div>
+
+                <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
+                <btn className="btn btn-info" onClick={() => this.handleNext(this.state.restaurant)}>  Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }
