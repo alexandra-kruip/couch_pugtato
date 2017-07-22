@@ -2,11 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Panel } from 'react-bootstrap';
 import { yelpData } from '../actions/index';
-import Map from './google_maps';
  
 class Yelp extends Component {
     componentDidMount() {
         this.props.yelpData();
+    }
+    constructor(props){
+        super(props);
+        this.state = {restaurant: 0};
+    }
+
+    handlePrevious(decrease) {
+        if(decrease <= 0){
+            return;
+        }
+        this.setState({restaurant: --decrease});
+        this.renderYelpData();
+    }
+
+    handleNext(increase) {
+        if(increase === this.props.yelp.data.businesses.length){
+            increase = 0;
+        }
+        this.setState({restaurant: ++increase});
+        this.renderYelpData();
     }
 
     renderYelpData() {
@@ -15,11 +34,9 @@ class Yelp extends Component {
             return <div>Woomp Woomp No Food... </div>
         }
         console.log('yelp data', this.props.yelp.data);
-
-        const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[0];
-        const { address1, city, state, zip_code } = this.props.yelp.data.businesses[0].location;
-        const { latitude, longitude } = this.props.yelp.data.businesses[0].coordinates;
-
+      
+        const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[this.state.restaurant];
+        const { address1, city, state, zip_code } = this.props.yelp.data.businesses[this.state.restaurant].location;
         return(
             <Panel header="What To Eat" bsStyle="danger" className="text-center">
                 <a href={url} target="_blank"><h2>{name}</h2></a>
@@ -35,7 +52,10 @@ class Yelp extends Component {
                 <div className="y-data">
                     <span className="glyphicon glyphicon-heart" aria-hidden="true"></span>
                     {rating}
-                </div>            
+                </div>
+
+                <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
+                <btn className="btn btn-info" onClick={() => this.handleNext(this.state.restaurant)}>  Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }
