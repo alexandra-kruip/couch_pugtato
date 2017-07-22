@@ -2,7 +2,7 @@ import React, { Component }from 'react';
 
 class GoogleMap extends Component {
     componentDidMount() { // called automitcally after component renders to screen
-        new google.maps.Map(this.refs.map, {
+        new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
             center: {
                 lat: this.props.lat,
@@ -11,7 +11,7 @@ class GoogleMap extends Component {
         });
     }
     render() {
-        return <div ref="map" />; // ref system allows for direct reference to HTML that has been rendered to page
+        return <div id="map" />; // ref system allows for direct reference to HTML that has been rendered to page
     }
 }
 

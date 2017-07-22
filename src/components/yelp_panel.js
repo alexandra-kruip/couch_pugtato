@@ -15,9 +15,11 @@ class Yelp extends Component {
             return <div>Woomp Woomp No Food... </div>
         }
         console.log('yelp data', this.props.yelp.data);
+
         const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[0];
-        const { address1, city, state, zip_code } = this.prop.yelp.data.businesses[0].location;
+        const { address1, city, state, zip_code } = this.props.yelp.data.businesses[0].location;
         const { latitude, longitude } = this.props.yelp.data.businesses[0].coordinates;
+
         return(
             <Panel header="What To Eat" bsStyle="danger" className="text-center">
                 <a href={url} target="_blank"><h2>{name}</h2></a>
@@ -33,8 +35,7 @@ class Yelp extends Component {
                 <div className="y-data">
                     <span className="glyphicon glyphicon-heart" aria-hidden="true"></span>
                     {rating}
-                </div>
-                {/* <Map lat={latitude} lon={longitude} />       */}                
+                </div>            
             </Panel>
         )
     }
@@ -42,7 +43,7 @@ class Yelp extends Component {
     render() {
         return (
             <div>
-                { this.renderYelpData() }
+                 { this.renderYelpData() } 
             </div>
         )
     }
