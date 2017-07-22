@@ -7,13 +7,13 @@ import VideoList from './videolist';
 
 const App = () => (
     <div>
-        <Navbar />
+         <Navbar /> 
         <div className="app">
             <h1>Welcome to Couch Pugtato!</h1>
         </div>
         <Grid />
         <VideoList />
-        <Footer />
+         <Footer /> 
     </div>
 );
 

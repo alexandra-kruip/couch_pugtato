@@ -5,7 +5,7 @@ import { yelpData } from '../actions/index';
  
 class Yelp extends Component {
     componentDidMount() {
-        this.props.yelpData();
+        // this.props.yelpData();
 
     }
     constructor(props){

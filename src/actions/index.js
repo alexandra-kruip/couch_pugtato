@@ -4,10 +4,12 @@ import actions from './types';
 import { yt_key } from '../../api_keys';
 import { tmdb_key } from '../../api_keys';
 
-const YELP_URL = 'https://couch-pugtato.herokuapp.com/yelp/irvine';
+const YELP_URL = 'https://couch-pugtato.herokuapp.com/yelp';
 const BASE_URL = 'https://api.themoviedb.org/3/discover/movie?api_key='+ tmdb_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&page=1&page=1';
 
-export function fetchMedia (){
+export function fetchMedia (val){
+    const { genre } = val;
+    
     const request = axios.get(`${BASE_URL}`);
         return {
             type: actions.FETCH_MEDIA,
@@ -15,8 +17,9 @@ export function fetchMedia (){
         }
 }
 
-export function yelpData() {
-    const yelp = axios.get(`${YELP_URL}`);
+export function yelpData(val) {
+    const location = val.address;
+    const yelp = axios.get(`${YELP_URL}/${location}`);
         return {
             type: actions.FETCH_YELP,
             payload: yelp
