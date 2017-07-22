@@ -6,7 +6,6 @@ import { yelpData } from '../actions/index';
 class Yelp extends Component {
     componentDidMount() {
         this.props.yelpData();
-
     }
     constructor(props){
         super(props);
@@ -35,6 +34,7 @@ class Yelp extends Component {
             return <div>Woomp Woomp No Food... </div>
         }
         console.log('yelp data', this.props.yelp.data);
+      
         const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[this.state.restaurant];
         const { address1, city, state, zip_code } = this.props.yelp.data.businesses[this.state.restaurant].location;
         return(
@@ -63,7 +63,7 @@ class Yelp extends Component {
     render() {
         return (
             <div>
-                { this.renderYelpData() }
+                 { this.renderYelpData() } 
             </div>
         )
     }
