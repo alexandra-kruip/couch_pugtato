@@ -39,12 +39,12 @@ class Splash extends Component {
         return(
             <div className="container splash-content">
                 <div className="row splash-items">
-                    <div className="col-sm-12">
+                    <div className="col-sm-12 col-md-12">
                         <img className="pugtato" src={Pugtato} alt="pugtato"/>
                     </div>
                 </div>
                 <div className="row splash-form">
-                    <div className="col-sm-12">
+                    <div className="col-sm-12 col-md-12">
                         <Field
                             name='address'
                             label="Location"
