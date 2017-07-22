@@ -37,7 +37,7 @@ class Yelp extends Component {
       
         const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[this.state.restaurant];
         const { address1, city, state, zip_code } = this.props.yelp.data.businesses[this.state.restaurant].location;
-        const { title } = this.props.yelp.data.businesses["0"].categories["0"]
+        const { title } = this.props.yelp.data.businesses[this.state.restaurant].categories["0"]
         console.log({title});
         return(
             <Panel header="What To Eat" bsStyle="danger" className="text-center">
@@ -52,11 +52,10 @@ class Yelp extends Component {
                     {` Contact Number: ${display_phone}`}
                 </div>
                 <div className="y-data">
-                    <span className="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                    {` Yelp Rating: ${rating}`}
+                    {` Yelp Rating: ${rating} | Category: ${title} | Price: ${price} ` } 
                 </div>
                 <div>
-                    {`Price: ${price} | Category: ${title}`}
+                    
                 </div>
 
                 <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>

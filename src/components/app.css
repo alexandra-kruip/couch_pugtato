@@ -23,3 +23,26 @@ h1 {
 .glyphicon {
      margin-right: 5px;
 }
+
+/* --- SPLASH CONTENT ---  */
+.splash-content {
+    margin: 5px auto;
+}
+
+.splash-item > div {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.splash-form {
+    text-align: center
+}
+
+
+/* --- MEDIA QUERIES ---  */
+@media (max-width: 400px) {
+  .pugtato {
+      width: 35rem;
+      /* margin: 50px auto; */
+  }
+}

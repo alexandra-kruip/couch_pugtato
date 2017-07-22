@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { yelpData, fetchMedia } from '../actions';
 import { Link } from 'react-router-dom'
+import Pugtato from './imgs/pugtatoOnCouch.png';
 
 class Splash extends Component {
     onFormSubmit(value) {
@@ -13,11 +14,12 @@ class Splash extends Component {
     }
     
     renderField(field) {
-        const { meta: {touched, error} } = field;
+        const { label, meta: {touched, error} } = field;
         const className = `form-group ${touched && error ? 'has-error has-feedback' : ''}`;
         
         return(
             <div className={className}>
+                <label className="form-control-label">{field.label}</label>
                 <input
                     type='text'
                     className='form-control '
@@ -35,19 +37,31 @@ class Splash extends Component {
         const { handleSubmit } = this.props;
 
         return(
-            <div>
-                <Field
-                    name='address'
-                    placeholder='e.g. 9200 Irvine Center Drive, Irvine, CA'
-                    component={this.renderField}
-                />
-                <Field
-                    name='genre'
-                    placeholder='Genre'
-                    component={this.renderField}
-                />
-                <button to='/home' className='btn btn-primary' onClick={handleSubmit((value) => this.onFormSubmit(value))}>Submit</button>
-            </div>
+            <div className="container splash-content">
+                <div className="row splash-items">
+                    <div className="col-sm-12">
+                        <img className="pugtato" src={Pugtato} alt="pugtato"/>
+                    </div>
+                </div>
+                <div className="row splash-form">
+                    <div className="col-sm-12">
+                        <Field
+                            name='address'
+                            label="Location"
+                            placeholder='e.g. 9200 Irvine Center Drive, Irvine, CA'
+                            component={this.renderField}
+                            
+                        />
+                        <Field
+                            name='genre'
+                            placeholder='Enter Movie Type'
+                            component={this.renderField}
+                            label="Movie Genre"
+                        />
+                        <button to='/home' type="submit" className='btn btn-primary btn-block' onClick={handleSubmit((value) => this.onFormSubmit(value))}>Submit</button>
+                    </div>
+                </div>
+            </div>    
         );
     };
 };
