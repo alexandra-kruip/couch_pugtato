@@ -37,6 +37,8 @@ class Yelp extends Component {
       
         const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[this.state.restaurant];
         const { address1, city, state, zip_code } = this.props.yelp.data.businesses[this.state.restaurant].location;
+        const { title } = this.props.yelp.data.businesses["0"].categories["0"]
+        console.log({title});
         return(
             <Panel header="What To Eat" bsStyle="danger" className="text-center">
                 <a href={url} target="_blank"><h2>{name}</h2></a>
@@ -47,11 +49,14 @@ class Yelp extends Component {
                 </div>
                 <div className="y-data">
                     <span className="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
-                    {display_phone}
+                    {` Contact Number: ${display_phone}`}
                 </div>
                 <div className="y-data">
                     <span className="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                    {rating}
+                    {` Yelp Rating: ${rating}`}
+                </div>
+                <div>
+                    {`Price: ${price} | Category: ${title}`}
                 </div>
 
                 <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
