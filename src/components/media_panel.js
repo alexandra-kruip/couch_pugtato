@@ -7,7 +7,7 @@ import { youtubeSearch, youtubeToggleTrue, youtubeToggleFalse } from '../actions
 
 class MediaPanel extends Component {
     componentDidMount() {
-        // this.props.fetchMedia();
+        this.props.fetchMedia();
     }
 
     constructor(props){
@@ -39,7 +39,6 @@ class MediaPanel extends Component {
         }
         const resultsArr = this.props.media.data.results;
         console.log('this.props.media.data.results', resultsArr);
-
 
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
 
