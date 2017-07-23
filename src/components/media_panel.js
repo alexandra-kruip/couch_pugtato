@@ -7,7 +7,7 @@ import { youtubeSearch, youtubeToggleTrue, youtubeToggleFalse } from '../actions
 
 class MediaPanel extends Component {
     componentDidMount() {
-        this.props.fetchMedia();
+        // this.props.fetchMedia();
     }
 
     constructor(props){
