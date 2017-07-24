@@ -41,7 +41,7 @@ class MediaPanel extends Component {
     
     renderMedia(){
         if(!this.props.media){
-            return <div>Loading...</div>
+            return <div>Woomp Woomp No Movie...</div>
         }
         const resultsArr = this.props.media.data.results;
 
