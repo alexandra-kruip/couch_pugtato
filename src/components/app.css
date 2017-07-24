@@ -23,3 +23,10 @@ h1 {
 .glyphicon {
      margin-right: 5px;
 }
+.panel-body{
+    min-height: 600px;
+}
+.panel-body img{
+    margin:auto;
+    max-height: 300px;
+}
