@@ -24,7 +24,17 @@ class Yelp extends Component {
         this.setState({restaurant: ++increase});
         this.renderYelpData();
     }
-
+    
+    prevNextButton(){
+        return (
+            <div className='row'>
+                <div className='col-xs-3 prev-button'><btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/>  Prev</btn></div>
+                <div className='col-xs-6 panel-title'>What To Eat</div>
+                <div className='col-xs-3 next-button'><btn className="btn btn-info" onClick={() => this.handleNext(this.state.restaurant)}>Next  <i className="glyphicon glyphicon-chevron-right"/></btn></div>
+            </div>
+        )
+    }
+    
     renderYelpData() {
         if(!this.props.yelp) {
             console.log('renderYelpData method hit');
@@ -37,7 +47,7 @@ class Yelp extends Component {
         const { title } = this.props.yelp.data.businesses[this.state.restaurant].categories["0"]
         console.log({title});
         return(
-            <Panel header="What To Eat" bsStyle="danger" className="text-center">
+            <Panel header={this.prevNextButton()} bsStyle="danger" className="text-center">
                 <a href={url} target="_blank"><h2>{name}</h2></a>
                 <img src={image_url} className="img-responsive" alt="food_location"/>
                 <div className="y-data">
@@ -54,9 +64,6 @@ class Yelp extends Component {
                 <div>
                     
                 </div>
-
-                <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
-                <btn className="btn btn-info" onClick={() => this.handleNext(this.state.restaurant)}>  Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }
