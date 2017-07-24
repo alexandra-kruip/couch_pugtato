@@ -23,7 +23,13 @@ h1 {
 .glyphicon {
      margin-right: 5px;
 }
-
+.panel-body{
+    min-height: 600px;
+}
+.panel-body img{
+    margin:auto;
+    max-height: 300px;
+}
 /* --- SPLASH CONTENT ---  */
 .splash-content {
     /* margin: 5px auto; */
@@ -38,6 +44,18 @@ h1 {
 .splash-form {
     width: 60%;
     margin: 5px auto;
+}
+
+.panel-title{
+    font-size: 20px;
+}
+
+.prev-button{
+    float: left;
+}
+
+.next-button{
+    float: right;
 }
 
 /* --- MEDIA QUERIES ---  */
