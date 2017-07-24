@@ -29,4 +29,30 @@ h1 {
 .panel-body img{
     margin:auto;
     max-height: 300px;
+
+/* --- SPLASH CONTENT ---  */
+.splash-content {
+    /* margin: 5px auto; */
+    margin-top: 2%;
+}
+
+.splash-items > div {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.splash-form {
+    width: 60%;
+    margin: 5px auto;
+}
+
+/* --- MEDIA QUERIES ---  */
+@media (max-width: 400px) {
+    .pugtato {
+        width: 35rem;
+        /* margin: 50px auto; */
+    }
+    .splash-form {
+        width: 100%;
+    }
 }
