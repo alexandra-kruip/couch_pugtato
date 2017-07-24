@@ -28,6 +28,7 @@ export function yelpData(val) {
 }
 
 export function youtubeSearch(term) {
+    console.log('from actions', term);
     return (dispatch) => {
         var response = [];
         YTSearch({
