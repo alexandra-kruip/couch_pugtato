@@ -46,6 +46,10 @@ h1 {
     margin: 5px auto;
 }
 
+.pugtato {
+    margin: 0 auto;
+}
+
 .panel-title{
     font-size: 20px;
 }
@@ -62,6 +66,7 @@ h1 {
 @media (max-width: 400px) {
     .pugtato {
         width: 35rem;
+        margin: 0 auto;
         /* margin: 50px auto; */
     }
     .splash-form {
