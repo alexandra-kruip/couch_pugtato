@@ -4,25 +4,22 @@ import { Panel } from 'react-bootstrap';
 import { yelpData } from '../actions/index';
  
 class Yelp extends Component {
-    componentDidMount() {
-        // this.props.yelpData();
-    }
     constructor(props){
         super(props);
         this.state = {restaurant: 0};
     }
 
     handlePrevious(decrease) {
-        if(decrease <= 0){
-            return;
+        if(decrease === 0){
+            decrease = this.props.yelp.data.businesses.length
         }
         this.setState({restaurant: --decrease});
         this.renderYelpData();
     }
 
     handleNext(increase) {
-        if(increase === this.props.yelp.data.businesses.length){
-            increase = 0;
+        if(increase === this.props.yelp.data.businesses.length -1){
+            increase = -1;
         }
         this.setState({restaurant: ++increase});
         this.renderYelpData();

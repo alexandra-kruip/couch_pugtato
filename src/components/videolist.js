@@ -14,16 +14,14 @@ class YoutubeList extends Component {
             )
         }
 
-        console.log('from videolist', this.props.youtubeBoolean);
-
         return this.props.video.map((video) => {
             const videoId = video.id.videoId;
             const url = `https://www.youtube.com/embed/${videoId}`;
 
             return (
-                <div className='row'>
-                    <div className='col-xs-10 col-xs-offset-1' key={video.snippet.title}>
-                        <div className="embed-responsive embed-responsive-16by9">
+                <div key={video.snippet.title} className='row'>
+                    <div className='col-xs-10 col-xs-offset-1'>
+                        <div  className="embed-responsive embed-responsive-16by9">
                             <iframe className="embed-responsive-item" src={url}></iframe>
                         </div>
                         <br/>
