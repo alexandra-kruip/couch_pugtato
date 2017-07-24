@@ -6,18 +6,14 @@ import { genre_decoder } from './helper_functions';
 import { youtubeSearch, youtubeToggleTrue, youtubeToggleFalse } from '../actions/index'
 
 class MediaPanel extends Component {
-    componentDidMount() {
-        // this.props.fetchMedia();
-    }
-
     constructor(props){
         super(props);
         this.state = {movie: 0};
     }
 
     handlePrevious(decrease) {
-        if(decrease <= 0){
-            return;
+        if(decrease === 0){
+            decrease = 20
         }
         this.setState({movie: --decrease});
         this.props.youtubeToggleFalse();
@@ -26,7 +22,7 @@ class MediaPanel extends Component {
 
     handleNext(increase) {
         if(increase === 19){
-            increase = 0;
+            increase = -1;
         }
         this.setState({movie: ++increase});
         this.props.youtubeToggleFalse();
@@ -38,7 +34,6 @@ class MediaPanel extends Component {
             return <div>Loading...</div>
         }
         const resultsArr = this.props.media.data.results;
-        console.log('this.props.media.data.results', resultsArr);
 
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
 
@@ -54,7 +49,7 @@ class MediaPanel extends Component {
                 <p>Release Date: {release_date}</p>
                 <p>{overview}</p>
 
-                <btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.movie)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
+                <btn className='btn btn-warning' onClick={() => this.handlePrevious(this.state.movie)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
                 <btn className="btn btn-info" onClick={() => this.handleNext(this.state.movie)}>  Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
@@ -69,7 +64,6 @@ class MediaPanel extends Component {
 };
 
 function mapStateToProps(state){
-    console.log('map state media test', state.media.list);
     return {
         media: state.media.list
     }
