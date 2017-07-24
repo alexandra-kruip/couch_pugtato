@@ -28,7 +28,17 @@ class MediaPanel extends Component {
         this.props.youtubeToggleFalse();
         this.renderMedia();
     }
-
+    
+    prevNextButton(){
+        return (
+            <div className='row'>
+                <div className='col-xs-3 prev-button'><btn className='btn btn-warning' onClick={() => this.handlePrevious(this.state.movie)}><i className="glyphicon glyphicon-chevron-left"/>  Prev</btn></div>
+                <div className='col-xs-6 panel-title'>What To Watch</div>
+                <div className='col-xs-3 next-button'><btn className="btn btn-info" onClick={() => this.handleNext(this.state.movie)}>Next  <i className="glyphicon glyphicon-chevron-right"/></btn></div>
+            </div>
+        )
+    }
+    
     renderMedia(){
         if(!this.props.media){
             return <div>Loading...</div>
@@ -37,10 +47,12 @@ class MediaPanel extends Component {
 
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
 
-        this.props.youtubeSearch({title});
+        const term = `${title} trailer`
+
+        this.props.youtubeSearch(term);
 
         return(
-            <Panel header="What to Watch" bsStyle="info" className='text-center'>
+            <Panel header= {this.prevNextButton()} bsStyle="info" className='text-center'>
                 <h2>{title}</h2>
                 <img src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + poster_path}/>
                 <h4>Rating: <i className="glyphicon glyphicon-star"/>{vote_average}</h4>
@@ -48,9 +60,6 @@ class MediaPanel extends Component {
                 <p>Genres: {`${genre_decoder(genre_ids)}`}</p>
                 <p>Release Date: {release_date}</p>
                 <p>{overview}</p>
-
-                <btn className='btn btn-warning' onClick={() => this.handlePrevious(this.state.movie)}><i className="glyphicon glyphicon-chevron-left"/>  Previous</btn>
-                <btn className="btn btn-info" onClick={() => this.handleNext(this.state.movie)}>  Next<i className="glyphicon glyphicon-chevron-right"/></btn>
             </Panel>
         )
     }
