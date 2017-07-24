@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { youtubeSearch } from '../actions';
+import { Modal, Button } from 'react-bootstrap';
+import { youtubeSearch, youtubeToggleFalse } from '../actions';
 
 class YoutubeList extends Component {
     displayVideos() {
@@ -8,19 +9,13 @@ class YoutubeList extends Component {
             return <div>Loading...</div>;
         }
 
-        if (!this.props.youtubeBoolean) {
-            return (
-                <div></div>
-            )
-        }
-
         return this.props.video.map((video) => {
             const videoId = video.id.videoId;
             const url = `https://www.youtube.com/embed/${videoId}`;
 
             return (
-                <div key={video.snippet.title} className='row'>
-                    <div className='col-xs-10 col-xs-offset-1'>
+                <div key={video.snippet.title}>
+                    <div>
                         <div  className="embed-responsive embed-responsive-16by9">
                             <iframe className="embed-responsive-item" src={url}></iframe>
                         </div>
@@ -31,13 +26,26 @@ class YoutubeList extends Component {
         });
     };
 
-    render() {
-        return (
-            <div className='container'>
-                {this.displayVideos()}
-            </div>
-        )
+    modalStyle = {
+        maxHeight: '75vh',
+        overflowY: 'auto'
     };
+
+    render() {
+        return(
+            <Modal className='text-center' show={this.props.youtubeBoolean} onHide={this.props.youtubeToggleFalse} bsSize="large" aria-labelledby="contained-modal-title-lg">
+                <Modal.Header closeButton>
+                    <Modal.Title className='text-center'>Trailers</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={this.modalStyle}>
+                    {this.displayVideos()}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button bsStyle='primary' onClick={this.props.youtubeToggleFalse}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+        )
+    }
 };
 
 function mapStateToProps(state) {
@@ -47,4 +55,4 @@ function mapStateToProps(state) {
     };
 };
 
-export default connect(mapStateToProps, { youtubeSearch })(YoutubeList);
+export default connect(mapStateToProps, { youtubeSearch, youtubeToggleFalse })(YoutubeList);
