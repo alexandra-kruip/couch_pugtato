@@ -37,7 +37,9 @@ class MediaPanel extends Component {
 
         const { title, overview, poster_path, vote_average, genre_ids, release_date } = resultsArr[this.state.movie];
 
-        this.props.youtubeSearch({title});
+        const term = `${title} trailer`
+
+        this.props.youtubeSearch(term);
 
         return(
             <Panel header="What to Watch" bsStyle="info" className='text-center'>
