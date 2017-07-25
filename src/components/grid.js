@@ -11,7 +11,7 @@ class grid extends Component {
         if(this.props.media === undefined && this.props.yelp === undefined) {
             return(
                 <div className='text-center'>
-                    <img className='img-responsive' src={Error}/>
+                    <img className='img-responsive col-sm-10 col-offset-sm-1' src={Error}/>
                     <h3>Please go back to Pugtato and enter a valid address and movie genre</h3>
                     <Link className='btn btn-primary' to='/'>Back to Pugtato!</Link>
                 </div>
