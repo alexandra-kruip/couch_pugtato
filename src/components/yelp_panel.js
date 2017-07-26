@@ -37,15 +37,13 @@ class Yelp extends Component {
     
     renderYelpData() {
         if(!this.props.yelp) {
-            console.log('renderYelpData method hit');
-            return <div>Woomp Woomp No Food... </div>
+            return <div>Woomp Woomp No Food...</div>
         }
-        console.log('yelp data', this.props.yelp.data);
-      
+              
         const { name, display_phone, image_url, price, rating, url } = this.props.yelp.data.businesses[this.state.restaurant];
         const { address1, city, state, zip_code } = this.props.yelp.data.businesses[this.state.restaurant].location;
         const { title } = this.props.yelp.data.businesses[this.state.restaurant].categories["0"]
-        console.log({title});
+        
         return(
             <Panel header={this.prevNextButton()} bsStyle="danger" className="text-center">
                 <a href={url} target="_blank"><h2>{name}</h2></a>
@@ -78,7 +76,6 @@ class Yelp extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('yelp mapStateToProps', state.yelp.data);
     return {
         yelp: state.yelp.data
     }

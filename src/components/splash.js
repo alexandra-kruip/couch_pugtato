@@ -88,7 +88,7 @@ class Splash extends Component {
             <div className="container splash-content">
                 <div className="row splash-items">
                     <div className="col-sm-12 col-md-12">
-                        <img className="pugtato" src={Pugtato} alt="pugtato"/>
+                        <img className="pugtato img-responsive" src={Pugtato} alt="pugtato"/>
                     </div>
                 </div>
                 <form onSubmit={handleSubmit((value) => this.onFormSubmit(value))} className="row splash-form">
