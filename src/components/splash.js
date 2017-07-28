@@ -6,7 +6,17 @@ import { Link } from 'react-router-dom'
 import Pugtato from './imgs/splash-bg.png';
 
 class Splash extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loadingButton: false
+        };
+    };
+
     onFormSubmit(value) {
+        this.setState({
+            loadingButton: true
+        });
         this.props.fetchMedia(value);
         this.props.yelpData(value).then(() => {
             this.props.history.push('/home');
@@ -110,7 +120,7 @@ class Splash extends Component {
                                     component={this.renderDropdown}
                                     label="Movie Genre"
                                 />
-                                <button to='/home' type="submit" className='btn btn-primary btn-block' onClick={handleSubmit((value) => this.onFormSubmit(value))}>Submit</button>
+                                {!this.state.loadingButton ? <button to='/home' type="submit" className='btn btn-primary btn-block' onClick={handleSubmit((value) => this.onFormSubmit(value))}>Submit</button> : <span className='btn btn-primary btn-block disabled'>Loading...</span>}
                             </div>
                         </form>
                     </div>

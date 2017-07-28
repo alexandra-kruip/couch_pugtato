@@ -34,6 +34,9 @@ class grid extends Component {
                     <Col sm={12} md={6} >
                         <YelpPanel />
                     </Col>
+                    <Col sm={12} className='text-center'>
+                        <Link to='/' className='btn btn-primary'>Go back to Pugtato!</Link>
+                    </Col>
                 </Row>
             </Grid>
         )
