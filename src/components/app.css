@@ -31,23 +31,22 @@ h1 {
     max-height: 300px;
 }
 /* --- SPLASH CONTENT ---  */
-.splash-content {
-    /* margin: 5px auto; */
-    margin-top: 2%;
-}
-
-.splash-items > div {
+.title {
     text-align: center;
-    margin: 10px auto;
+    margin-bottom: 5%;
+}
+.p-title {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 5%;
 }
 
 .splash-form {
-    width: 60%;
-    margin: 5px auto;
+    font-family: 'Playfair Display', serif;
+    margin: 5% auto;
 }
 
-.pugtato {
-    margin: 0 auto;
+.splash-items > div {
+    margin: 10px auto;
 }
 
 .panel-title{
