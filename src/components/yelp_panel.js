@@ -28,9 +28,9 @@ class Yelp extends Component {
     prevNextButton(){
         return (
             <div className='row'>
-                <div className='col-xs-3 prev-button'><btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/>  Prev</btn></div>
+                <div className='col-xs-3 prev-button'><btn className="btn btn-warning" onClick={() => this.handlePrevious(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-left"/></btn></div>
                 <div className='col-xs-6 panel-title'>What To Eat</div>
-                <div className='col-xs-3 next-button'><btn className="btn btn-info" onClick={() => this.handleNext(this.state.restaurant)}>Next  <i className="glyphicon glyphicon-chevron-right"/></btn></div>
+                <div className='col-xs-3 next-button'><btn className="btn btn-info" onClick={() => this.handleNext(this.state.restaurant)}><i className="glyphicon glyphicon-chevron-right"/></btn></div>
             </div>
         )
     }
