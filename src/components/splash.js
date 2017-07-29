@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { yelpData, fetchMedia } from '../actions';
 import { Link } from 'react-router-dom'
+import Footer from './footer';
 import Pugtato from './imgs/splash-bg.png';
 
 class Splash extends Component {
@@ -120,11 +121,12 @@ class Splash extends Component {
                                     component={this.renderDropdown}
                                     label="Movie Genre"
                                 />
-                                {!this.state.loadingButton ? <button to='/home' type="submit" className='btn btn-primary btn-block' onClick={handleSubmit((value) => this.onFormSubmit(value))}>Submit</button> : <span className='btn btn-primary btn-block disabled'>Loading...</span>}
+                                {!this.state.loadingButton ? <button to='/home' type="submit" className='btn btn-warning btn-block' onClick={handleSubmit((value) => this.onFormSubmit(value))}>Submit</button> : <span className='btn btn-warning btn-block disabled'>Loading...</span>}
                             </div>
                         </form>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     };

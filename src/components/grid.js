@@ -26,7 +26,7 @@ class grid extends Component {
             )
         }
         return (
-            <Grid>
+            <Grid className="result">
                 <Row className="show-grid">
                     <Col sm={12} md={6} >
                         <MoviePanel />
