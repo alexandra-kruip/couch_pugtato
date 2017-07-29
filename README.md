@@ -2,6 +2,12 @@
 
 ## Purpose of Application
 
+##### Developers
+- Alexandra Kruip -> [Portfolio](http://alexkdev.com)
+- Alex SJ Lee -> [Portfolio](http://alexsjlee.com)
+- Vincent Tang -> [Portfolio](http://vincentpoketang.com)
+- Ryan Apellanes -> [Portfolio](http://ryanapples.com)
+
 #### Technologies
 
 - ReactJS
@@ -14,13 +20,6 @@
 
 ##### Additional Tools
 
-- Meistertask -> Task Management
+- Meistertask
 - Slack
-
-##### Developers
-- Alexandra Kruip -> [Portfolio](http://alexkdev.com)
-- Alex SJ Lee -> [Portfolio](http://alexsjlee.com)
-- Vincent Tang -> [Portfolio](http://vincentpoketang.com)
-- Ryan Apellanes -> [Portfolio](http://ryanapples.com)
-
 
