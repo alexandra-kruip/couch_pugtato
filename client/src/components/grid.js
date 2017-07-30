@@ -18,7 +18,7 @@ class grid extends Component {
                     </div>
                     <div className='row'>
                         <div className='col-sm-12'>
-                            <h3>Please go back to Pugtato and enter a valid address and movie genre</h3>
+                            <h3>Please go back to Pugtato and enter a valid address and/or movie genre</h3>
                             <Link className='btn btn-primary' to='/'>Back to Pugtato!</Link>
                         </div>
                     </div>

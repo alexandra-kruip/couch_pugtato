@@ -1,6 +1,5 @@
 .idea
 .DS_Store
 node_modules
-dist
-!dist/index.html
+client/node_modules
 api_keys.js
